@@ -1,7 +1,6 @@
-/* Onoma arxeiou:	scanner.l
-   Perigrafh:		Aplos lektikos analyths me diaxeirisi 					lathoys	
-   SyggrafeasQ		Co lab
-   
+/* Όνομα αρχείου:	scanner.l
+   Περιγραφή:		Απλός λεκτικός αναλυτής με διαχείριση λαθών	
+   Συγγραφέας:		Co lab
 */
 
 %option noyywrap
@@ -13,13 +12,12 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "token.h" // Header file που περιέχει όλα τα tokens 
 
-#include "token.h" //Header file pou periexei ola ta tokens 
-
-/* Orismos metrhth trexousas grammhs */
+/* Ορισμός μετρητή τρέχουσας γραμμής */
 int line=1;
 
-void ERROR(const char *msg); //synartisi diaxeirisis lathwn
+void ERROR(const char *msg); // Συνάρτηση διαχείρισης λαθών
 void prn(char *s);
 
 %}
@@ -39,19 +37,15 @@ INTEGER_ERROR	{INTEGER}[A-Za-z]+
 <error>[ \t\n]	{BEGIN(0);}
 <error>.		{}
 
-
-
 %%
 
 void ERROR(const char *msg)
 {
-        fprintf(yyout, "\tFlex -> ERROR, line %d at lexeme \'%s\' : %s\n",line, yytext, msg);
+    fprintf(yyout, "\tFlex -> ERROR, line %d at lexeme \'%s\' : %s\n", line, yytext, msg);
 }
 
-/* H synarthsh typwnei sthn othonh to keimeno tou anagnwristikou pou tairiakse me kapoion kanona. Xrhsimopoieitai kathara gia logous katanohshs kai debugging. */
+/* Η συνάρτηση τυπώνει στην οθόνη το κείμενο του αναγνωριστικού που ταίριαξε με κάποιον κανόνα. Χρησιμοποιείται καθαρά για λόγους κατανόησης και debugging. */
 void prn(char *s)
 {
-	printf("\tFlex -> Matched token: %s %s\n", yytext, s);
+    printf("\tFlex -> Matched token: %s %s\n", yytext, s);
 }
-
-
