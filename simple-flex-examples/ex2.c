@@ -367,7 +367,7 @@ struct yy_trans_info
 static const flex_int16_t yy_accept[16] =
     {   0,
         0,    0,    5,    4,    3,    4,    0,    3,    0,    0,
-        1,    0,    1,    2,    0
+        1,    0,    2,    1,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -669,9 +669,10 @@ YY_DECL
 		}
 
 	{
-#line 11 "ex2.l"
+#line 10 "ex2.l"
 
-#line 675 "ex2.c"
+
+#line 676 "ex2.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -732,26 +733,26 @@ case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
 #line 12 "ex2.l"
-ECHO;
+{ECHO; printf("Begins with a\n");};
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
 #line 13 "ex2.l"
-ECHO;
+{ECHO; printf("Ends with a\n");};
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 14 "ex2.l"
+#line 15 "ex2.l"
 ;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 15 "ex2.l"
+#line 16 "ex2.l"
 ECHO;
 	YY_BREAK
-#line 755 "ex2.c"
+#line 756 "ex2.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1756,7 +1757,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 15 "ex2.l"
+#line 16 "ex2.l"
 
 
 void main()

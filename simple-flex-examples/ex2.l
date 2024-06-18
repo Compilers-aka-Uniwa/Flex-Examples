@@ -5,12 +5,13 @@
 %{
 	#include <stdio.h>
 %}
-ends_with_a	.*a\n
 begins_with_a	a.*\n
-
+ends_with_a	.*a\n
 %%
-{ends_with_a}	ECHO;
-{begins_with_a}	ECHO;
+
+{begins_with_a}	{ECHO; printf("Begins with a\n");};
+{ends_with_a}	{ECHO; printf("Ends with a\n");};
+
 .*\n	;
 %%
 
